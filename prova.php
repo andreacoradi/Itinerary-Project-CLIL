@@ -9,9 +9,20 @@
 <body>
 <?php
 	include "routes.php";
-
-	var_dump($routes);
-
+	$start = $_POST["start"];
+	$end = $_POST["end"];
+	$mezzi = $_POST["mezzo"];
+	$tipo = $_POST["tipo"];
+	// var_dump($mezzi);
+	//var_dump($routes);
+	echo "<p>Da " . $start . " a " . $end . " dista " . $routes[$start][$end][$mezzi[0]]["distanza"];
+	foreach($mezzi as $mezzo) {
+		$linea = $routes[$start][$end][$mezzo];
+		if($linea != NULL) {
+			echo "<p>Andando in " . $mezzo . " costa " . $linea["costo"] . " e ci metti " . $linea["tempo"] ."</p>";
+			//echo $routes[$start][$end][$mezzo];
+		}
+	}
 
 ?>
 </body>
