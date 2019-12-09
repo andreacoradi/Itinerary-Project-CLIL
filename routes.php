@@ -1,8 +1,3 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset='utf-8'>
-    </head>
 <?php
 $routes =
     [
@@ -77,6 +72,7 @@ $routes =
                     ]
             ]
     ];
+/*
 echo '<h2>Esempi di utilizzo</h2>';
 
 echo '<h3>Tutti i collegamenti che partono da Los Angeles</h3>';
@@ -109,6 +105,5 @@ foreach($routes['Los Angeles'] as $name=>$c)
 <?php
 echo '<pre>';
 var_dump($citta);
-echo '</pre>';
+echo '</pre>';*/
 ?>
-</html>
