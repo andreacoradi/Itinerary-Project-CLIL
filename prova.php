@@ -4,49 +4,88 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Document</title>
+	<title>Risultato</title>
 </head>
 <body>
 <?php
 	include "routes.php";
 	$start = $_POST["start"];
 	$end = $_POST["end"];
-	$mezzi = $_POST["mezzo"];
+	$usr_mezzi = $_POST["mezzo"];
 	$tipo = $_POST["tipo"];
-	// var_dump($mezzi);
-	//var_dump($routes);
-	echo "<p>Da " . $start . " a " . $end . " dista " . $routes[$start][$end][$mezzi[0]]["distanza"];
 
-	$a = $routes[$start][$end];
-	$t = 0;
-	$key = "distanza";
 	if($tipo == "shortest") {
-		$t = $a[$mezzi[0]];
+		$usr_important = "distanza";
 	} elseif ($tipo == "fastest") {
-		$key = "tempo";
+		$usr_important = "tempo";
 	} elseif ($tipo == "cheapest") {
-		$key = "costo";
+		$usr_important = "costo";
 	}
 
-	$best = $routes[$start][$end][$mezzi[0]];
-	$m = $mezzi[0];
+	$routes_temp = $routes;
+	foreach($routes as $cityStart => $cityEnd) {
 
-	foreach($mezzi as $mezzo) {
-		$linea = $routes[$start][$end][$mezzo];
+		foreach($cityEnd as $cityName => $mezzi) {
+			$min_value = 99999999999;
+			foreach($mezzi as $mezzo => $dati) {
+				$del = $mezzo;
 
-		if($linea != NULL) {
-			echo $linea[$key] . " " . $t;
-			if($linea[$key] < $t) {
-				$best = $linea;
-				$m = $mezzo;
+				// Qua voglio controllare se posso togliere qualche mezzo
+				if(!in_array($mezzo, $usr_mezzi)) {
+					unset($routes_temp[$cityStart][$cityName][$mezzo]);
+					continue;
+				}
+				foreach($dati as $campo => $value) {
+					if($campo == $usr_important) {
+						if($value < $min_value) {
+							// Abbiamo trovato un valore migliore
+
+							if($min_value != 99999999999) {
+								unset($routes_temp[$cityStart][$cityName][$del]);
+							}
+
+							$min_value = $value;
+						} else {
+							// Abbiamo trovato un valore peggiore
+
+							unset($routes_temp[$cityStart][$cityName][$del]);
+						}
+					} else {
+						// Questo campo non è importante
+
+						unset($routes_temp[$cityStart][$cityName][$mezzo][$campo]);
+					}
+				}
 			}
-			//echo "<p>Andando in " . $mezzo . " costa " . $linea["costo"] . " e ci metti " . $linea["tempo"] ."</p>";
-			//echo $routes[$start][$end][$mezzo];
+		}
+	}
+	echo "<br><pre>";
+	print_r($routes_temp);
+	echo "</pre>";
+
+
+	require("Dijkstra.php");
+	$g = new Graph();
+
+	// Aggiungiaml
+	foreach($routes_temp as $cityStart => $cityEnd) {
+		foreach($cityEnd as $cityName => $mezzi) {
+			//var_dump($mezzi);
+			foreach($mezzi as $mezzo => $value) {
+
+				$g->addedge($cityStart, $cityName, $value[$usr_important]);
+				$g->addedge($cityName, $cityStart, $value[$usr_important]);
+			}
 		}
 	}
 
-	echo "<p>Andando in " . $m . " costa " . $best["costo"] . " e ci metti " . $best["tempo"] . " in distanza ". $best["distanza"] . "</p>";
-
+	echo "<p>Per andare da " . $start . " a " . $end . ":</p>";
+	list($distances, $prev) = $g->paths_from($start);
+	$path = $g->paths_to($prev, $end);
+	echo "Soluzione: ";
+	echo "<br><pre>";
+	print_r($path);
+	echo "</pre>";
 ?>
 </body>
 </html>
