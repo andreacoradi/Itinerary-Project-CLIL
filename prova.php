@@ -21,15 +21,18 @@
 	} elseif ($tipo == "cheapest") {
 		$usr_important = "costo";
 	}
-
+	// echo "<h1>" . $usr_important . "</h1>";
 	$routes_temp = $routes;
 	foreach($routes as $cityStart => $cityEnd) {
 
 		foreach($cityEnd as $cityName => $mezzi) {
 			$min_value = 99999999999;
+			// echo "<p>" . $cityName ."</p>";
+
 			foreach($mezzi as $mezzo => $dati) {
 				$del = $mezzo;
-
+				if($min_value == 99999999999)
+					$best = $mezzo;
 				// Qua voglio controllare se posso togliere qualche mezzo
 				if(!in_array($mezzo, $usr_mezzi)) {
 					unset($routes_temp[$cityStart][$cityName][$mezzo]);
@@ -39,13 +42,16 @@
 					if($campo == $usr_important) {
 						if($value < $min_value) {
 							// Abbiamo trovato un valore migliore
-
+							//echo "<p>" . $mezzo . "</p>";
+							//echo "<p>" . $value ." < " . $min_value . "</p>";
 							if($min_value != 99999999999) {
-								unset($routes_temp[$cityStart][$cityName][$del]);
+								$best = $mezzo;
 							}
 
 							$min_value = $value;
+							// echo "<p>Min value is now: " . $min_value . "</p>";
 						} else {
+							// echo "<p>" . $value ." > " . $min_value . "</p>";
 							// Abbiamo trovato un valore peggiore
 
 							unset($routes_temp[$cityStart][$cityName][$del]);
@@ -53,12 +59,24 @@
 					} else {
 						// Questo campo non è importante
 
-						unset($routes_temp[$cityStart][$cityName][$mezzo][$campo]);
+						// unset($routes_temp[$cityStart][$cityName][$mezzo][$campo]);
 					}
+				}
+			}
+
+			foreach($mezzi as $m => $d) {
+				if($m != $best){
+					//echo "<p>Togliaml " . $m . " da " . $cityStart . " => " . $cityName . "</p>";
+					unset($routes_temp[$cityStart][$cityName][$m]);
 				}
 			}
 		}
 	}
+
+	echo "<br><pre>";
+	print_r($routes);
+	echo "</pre>";
+
 	echo "<br><pre>";
 	print_r($routes_temp);
 	echo "</pre>";
@@ -72,7 +90,7 @@
 		foreach($cityEnd as $cityName => $mezzi) {
 			//var_dump($mezzi);
 			foreach($mezzi as $mezzo => $value) {
-
+				var_dump($value);
 				$g->addedge($cityStart, $cityName, $value[$usr_important]);
 				$g->addedge($cityName, $cityStart, $value[$usr_important]);
 			}
