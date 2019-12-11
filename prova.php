@@ -90,7 +90,8 @@
 		foreach($cityEnd as $cityName => $mezzi) {
 			//var_dump($mezzi);
 			foreach($mezzi as $mezzo => $value) {
-				var_dump($value);
+				// var_dump($value);
+				// TODO: delete empty arrays
 				$g->addedge($cityStart, $cityName, $value[$usr_important]);
 				$g->addedge($cityName, $cityStart, $value[$usr_important]);
 			}
@@ -104,6 +105,18 @@
 	echo "<br><pre>";
 	print_r($path);
 	echo "</pre>";
+
+	$costo = 0;
+	for($i = 0; $i < count($path)-1; $i++) {
+		$c1 = $path[$i];
+		$c2 = $path[$i+1];
+		foreach($routes_temp[$c1][$c2] as $key=> $value){
+			echo "<p> Da $c1 a $c2 ci vai con $key: " . $tipo . ", costo = " . $value["costo"] . ", distanza = " . $value["distanza"] .  ", tempo = " . $value["tempo"] . "</p>";
+			$costo += $value["costo"];
+		}
+		//var_dump($routes_temp[$c1][$c2][array_keys($routes_temp[$c1][$c2])]);
+	}
+	echo "<p>Spendi la bellezza di: $costo</p>";
 ?>
 </body>
 </html>
