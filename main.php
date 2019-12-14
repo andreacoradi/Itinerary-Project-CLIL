@@ -82,13 +82,15 @@
 	echo "</pre>";
 
 
-	require("Dijkstra.php");
+	require("lib/Dijkstra.php");
 	$g = new Graph();
 
 	// Aggiungiaml
 	foreach($routes_temp as $cityStart => $cityEnd) {
 		foreach($cityEnd as $cityName => $mezzi) {
-			//var_dump($mezzi);
+			if(count($routes_temp[$cityStart][$cityName]) == 0) {
+				unset($routes_temp[$cityStart][$cityName]);
+			}
 			foreach($mezzi as $mezzo => $value) {
 				// var_dump($value);
 				// TODO: delete empty arrays
