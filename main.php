@@ -97,14 +97,14 @@
 			}
 		}
 	}
-	/*
-	echo "<p>Per andare da " . $start . " a " . $end . ":</p>";
+
+	//echo "<p>Per andare da " . $start . " a " . $end . ":</p>";
 	list($distances, $prev) = $g->paths_from($start);
 	$path = $g->paths_to($prev, $end);
-	echo "Soluzione: ";
-	echo "<br><pre>";
+	//echo "Soluzione: ";
+	//echo "<br><pre>";
 	print_r($path);
-	echo "</pre>";*/
+	//echo "</pre>";
 
 	$costo = 0;
 	for($i = 0; $i < count($path)-1; $i++) {
