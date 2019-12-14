@@ -82,7 +82,7 @@
 	echo "</pre>";
 
 
-	require("Dijkstra.php");
+	require("lib/Dijkstra.php");
 	$g = new Graph();
 
 	// Aggiungiaml
