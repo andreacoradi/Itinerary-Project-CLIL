@@ -12,20 +12,19 @@
 
 <body>
 	<div class="sidenav">
-		<a href="#">NomeSito</a>
-		<a href="#">I miei viaggi</a>
-		<a href="#">Mete</a>
-		<a href="#">QUALCOSA</a>
+		<a href="index.html" class="logo1"><img src="LOGO1.png"</a>
+		<a href="mete.html"><span class="icon-calendar"></span> My itineraries</a>
+		<a href="#"><span class="icon-location"></span> Explore</a>
 	</div>
 	<div class="container">
-		<div class="row cols-sm-10 cols-md-10">
+		<div class="row cols-sm-12 cols-md-10">
 			<div class="col-md-offset-2">
 				<div class="section1">
 					<h1>Book a trip</h1>
 					
 					<form action="prova.php" method="post">
 
-						<p>From</p>
+						<p class="minititle">From</p>
 						<select name="start">
 							<option value="Los Angeles">Los Angeles</option>
 							<option value="San Diego">San Diego</option>
@@ -36,7 +35,7 @@
 
 
 
-						<p>To</p>
+						<p class="minititle">To</p>
 						<select name="end">
 							<option value="Los Angeles">Los Angeles</option>
 							<option value="San Diego">San Diego</option>
@@ -45,7 +44,7 @@
 							<option value="Portland">Portland</option>
 						</select>
 
-						<p> Means of trasportation</p>
+						<p class="minititle"> Means of trasportation</p>
 						<input type="radio" name="tipo" value="fastest"> Fastest <br />
 						<input type="radio" name="tipo" value="shortest"> Shortest <br />
 						<input type="radio" name="tipo" value="cheapest"> Cheapest <br />
@@ -60,6 +59,7 @@
 			</div>
 		</div>
 	</div>
+
 
 </body>
 

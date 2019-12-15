@@ -1,12 +1,14 @@
 /* The sidebar menu */
 .sidenav {
     height: 100%; /* Full-height: remove this if you want "auto" height */
-    width: 160px; /* Set the width of the sidebar */
+    width: 200px; /* Set the width of the sidebar */
     position: fixed; /* Fixed Sidebar (stay in place on scroll) */
     z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
     left: 0;
-    background-color: #6C5B7B; /* Black */
+    /*background-color: #6C5B7B; /* Black */
+    background: rgb(34,87,195);
+background: linear-gradient(0deg, rgba(34,87,195,1) 0%, rgba(205,54,78,1) 62%, rgba(57,0,0,1) 100%);
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 20px;
   }
@@ -39,7 +41,10 @@
 
 
 h1{
-   font-family: Arial, 'Helvetica', sans-serif
+   font-family: Arial, 'Helvetica', sans-serif;
+   font-size: 35px;
+   font-weight: bold;
+   color: #3D3D3D;
   }
 
   .section1 {
@@ -47,5 +52,80 @@ h1{
   }
 
   body {
-    background-color: floralwhite
+    background-color: whitesmoke
   }
+
+
+  .logo1
+{
+  margin-left: 0px;
+	float: left;
+	width: 180px;
+}
+
+.minititle{
+  font-family: Arial, 'Helvetica', sans-serif;
+  font-size: 25px;
+  color: #3D3D3D;
+}
+
+
+/* Responsive image gallery */
+
+div.responsiveimg {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+div.gallery {
+  border: 1px solid #f4f4f4;
+}
+
+div.gallery:hover {
+  border: 1px solid #f4f4f4;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.responsiveimg {
+  padding: 0 6px;
+  float: left;
+  width: 24.99999%;
+}
+
+@media only screen and (max-width: 700px) {
+  .responsiveimg {
+    width: 49.99999%;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .responsiveimg {
+    width: 100%;
+  }
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.destination{
+font-family: Arial, 'Helvetica', sans-serif;
+font-size: 50px;
+text-align: center
+
+}
