@@ -72,17 +72,17 @@
 			}
 		}
 	}
-
+	/*
 	echo "<br><pre>";
 	print_r($routes);
 	echo "</pre>";
 
 	echo "<br><pre>";
 	print_r($routes_temp);
-	echo "</pre>";
+	echo "</pre>";*/
 
 
-	require("lib/Dijkstra.php");
+	require("./lib/Dijkstra.php");
 	$g = new Graph();
 
 	// Aggiungiaml
@@ -92,21 +92,19 @@
 				unset($routes_temp[$cityStart][$cityName]);
 			}
 			foreach($mezzi as $mezzo => $value) {
-				// var_dump($value);
-				// TODO: delete empty arrays
 				$g->addedge($cityStart, $cityName, $value[$usr_important]);
 				$g->addedge($cityName, $cityStart, $value[$usr_important]);
 			}
 		}
 	}
 
-	echo "<p>Per andare da " . $start . " a " . $end . ":</p>";
+	//echo "<p>Per andare da " . $start . " a " . $end . ":</p>";
 	list($distances, $prev) = $g->paths_from($start);
 	$path = $g->paths_to($prev, $end);
-	echo "Soluzione: ";
-	echo "<br><pre>";
+	//echo "Soluzione: ";
+	//echo "<br><pre>";
 	print_r($path);
-	echo "</pre>";
+	//echo "</pre>";
 
 	$costo = 0;
 	for($i = 0; $i < count($path)-1; $i++) {
