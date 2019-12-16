@@ -16,7 +16,7 @@
 <div class="sidenav">
 	  <a href="index.html" class="logo1"><img src="./pics/LOGO1.png"></a>
       <a href="mete.html"><span class="icon-location"></span> Explore</a>
-	</div>
+</div>
 
 
 <?php
@@ -155,21 +155,9 @@
 		}
 		//var_dump($routes_temp[$c1][$c2][array_keys($routes_temp[$c1][$c2])]);
 	}
-	echo'
-					  <div class="card">'.
+	$icona = "<img src='./icons/money.svg' width='10' height='10'>";
+	echo "<p>$icona Total cost: $$costo</p>";
 
-					  '<div class="product active" product-id="1" >'.
-					  '<h3>'. $tipo.' itinerary</h3>'.
-					 "<p>$c1 to $c2 by $key: $" . $value["costo"] . ", duration " . $durata . " hours</p>";
-					  "<p>Total cost: $$costo</p>";
-                    '</div>'.
-              '</div>';
 ?>
-
-
-</div>
-          </div>
-        </div>
-	  </div>
 </body>
 </html>
