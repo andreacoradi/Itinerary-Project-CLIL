@@ -158,8 +158,10 @@
 	}
 
 	$tempo =gmdate("i:s", $tot_duration);
-	$icona = "<img src='./icons/money.svg' width='10' height='10'>";
-	echo "<p>$icona Total cost: $$costo, Total Duration: $tempo hours</p>";
+	$money = "<img src='./icons/money.svg' width='10' height='10'>";
+	$clock = "<img src='./icons/clock.svg' width='15' height='15'>";
+	echo "<p>$money Total cost: $$costo </p>";
+	echo "<p>$clock Total Duration: $tempo hours</p>";
 
 ?>
 </body>
