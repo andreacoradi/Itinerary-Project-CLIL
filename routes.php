@@ -72,38 +72,4 @@ $routes =
                     ]
             ]
     ];
-/*
-echo '<h2>Esempi di utilizzo</h2>';
-
-echo '<h3>Tutti i collegamenti che partono da Los Angeles</h3>';
-echo 'var_dump($routes[\'Los Angeles\'])<br>';
-echo '<pre>';
-var_dump($routes['Los Angeles']);
-echo '</pre>';
-
-echo '<h3>Tutti i collegamenti da Los Angeles a Washington D.C.</h3>';
-echo 'var_dump($routes[\'Los Angeles\'][\'Washington D.C.\'])<br>';
-echo '<pre>';
-var_dump($routes['Los Angeles']['Washington D.C.']);
-echo '</pre>';
-
-echo '<h3>Costo, distanza (in km) e tempo di percorrenza in minuti del viaggio da Los Angeles a Washington D.C. usando il bus</h3>';
-echo 'var_dump($routes[\'Los Angeles\'][\'Washington D.C.\'][\'bus\'])<br>';
-echo '<pre>';
-var_dump($routes['Los Angeles']['Washington D.C.']['bus']);
-echo '</pre>';
-
-echo '<h3>Tutte le città collegate a Los Angeles</h3>';
-foreach($routes['Los Angeles'] as $name=>$c)
-    $citta[] = $name;
-?>
-<pre>
-Istruzione per creare l'array delle città
-foreach($routes['Los Angeles'] as $name=>$c)
-    $citta[] = $name;
-</pre>
-<?php
-echo '<pre>';
-var_dump($citta);
-echo '</pre>';*/
 ?>
