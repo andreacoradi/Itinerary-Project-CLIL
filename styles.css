@@ -148,7 +148,7 @@ h3{
 }
 
 p {
-	font-family: 'Inconsolata', monospace;
+	font-family: Georgia, 'Times New Roman', Times, serif;
 	text-align: center;
 	font-size: 15px;
 	letter-spacing: 1px;
@@ -185,29 +185,13 @@ p {
 	margin-top: 20%;
 }
 
-
-.card {
-	background: #ffffff;
-	max-width: 400px;
-	margin: 100px auto;
-	border-radius: 12px;
-	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-	box-sizing: border-box;
-	padding: 48px;
+h2{
 	text-align: center;
-  }
-  
-  
-  .product {
-	/*position: absolute; */
-	/*top: 0;
-	left: 0;
-	opacity: 0; */
-	visibility: hidden;
-	transition: 0.5s ease;
-  }
+}
 
-  .product.active {
-	opacity: 1;
-	visibility: visible;
-  }
+.containLA{
+	background-image: "../pics/LA6.jpg";
+  /*background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;*/
+}
