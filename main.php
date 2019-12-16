@@ -4,6 +4,11 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link
+      rel="stylesheet"
+      href="https://cdn.rawgit.com/Chalarangelo/mini.css/v3.0.1/dist/mini-default.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
 	<title>Solution</title>
 </head>
 <body>
@@ -13,6 +18,14 @@
       <a href="mete.html"><span class="icon-location"></span> Explore</a>
 	</div>
 	
+	<div class="container">
+      <!--<div class="row">-->
+        <div class="cols-sm-12 cols-md-10 cols-lg-10">
+          <div class="col-md-offset-2">
+            <div class="section1">
+		
+
+
 	
 <?php
 	include "routes.php";
@@ -128,7 +141,11 @@
 	$endLink = "<a href='./cities/" . fileName($end) . ".html'>$end</a>";
 
 	echo "<p>You chose to go from $startLink to $endLink</p>";
-	echo "<h3>$tipo itinerary</h3>";
+
+	
+					  
+					  
+	
 
 
 	$costo = 0;
@@ -139,12 +156,26 @@
 			/*$durata = strval(number_format((float)$value["tempo"] / 60, 2, '.', ''));
 			$durata = str_replace(".", ":", $durata);*/
 			$durata = gmdate("i:s", $value["tempo"]);
-			echo "<p>$c1 to $c2 by $key: $" . $value["costo"] . ", duration " . $durata . " hours</p>";
+			
 			$costo += $value["costo"];
 		}
 		//var_dump($routes_temp[$c1][$c2][array_keys($routes_temp[$c1][$c2])]);
 	}
-	echo "<p>Total cost: $$costo</p>";
+	echo'
+					  <div class="card">'.
+                  
+					  '<div class="product active" product-id="1" >'.
+					  '<h3>'. $tipo.' itinerary</h3>'.
+					 "<p>$c1 to $c2 by $key: $" . $value["costo"] . ", duration " . $durata . " hours</p>";
+					  "<p>Total cost: $$costo</p>";
+                    '</div>'.
+              '</div>';
 ?>
+
+
+</div>
+          </div>
+        </div>
+	  </div>
 </body>
 </html>

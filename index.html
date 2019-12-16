@@ -22,6 +22,7 @@
         <div class="cols-sm-12 cols-md-10 cols-lg-10">
           <div class="col-md-offset-2">
             <div class="section1">
+
               <h1 style="text-align: center">Book a trip</h1>
 
               <form action="main.php" method="post">
@@ -45,20 +46,26 @@
 
                 <p class="minititle" style="margin-left:40%;width:20%;min-width:150px;">Means of trasportation</p>
                 <input type="radio" name="tipo" value="fastest" style="margin-left:45%;"/> Fastest
-                <br />
                 <input type="radio" name="tipo" value="shortest" style="margin-left:45%;"/> Shortest
-                <br />
                 <input type="radio" name="tipo" value="cheapest" style="margin-left:45%;"/> Cheapest
+                <input type="checkbox" name="mezzo[]" value="bus" style="margin-left:45%;"/> Bus
+                <br />
+                
+                <input type="checkbox" name="mezzo[]" value="train" style="margin-left:45%;"/> Train
+                <br />
+                
+                <input type="checkbox" name="mezzo[]" value="airplane" style="margin-left:45%;"/>
+                Airplane
                 <br />
 
-                <input type="checkbox" name="mezzo[]" value="bus" style="margin-left:45%;"/> Bus <br />
-                <input type="checkbox" name="mezzo[]" value="train" style="margin-left:45%;"/> train
-                <br />
-                <input type="checkbox" name="mezzo[]" value="airplane" style="margin-left:45%;"/>
-                Airplane <br />
+            
 
                 <input type="submit" value="Calculate" style="margin-left:45%;"/>
               </form>
+
+
+              
+
             </div>
           </div>
         </div>

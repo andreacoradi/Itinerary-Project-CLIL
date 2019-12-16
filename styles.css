@@ -97,6 +97,11 @@ h1 {
 	color: #151e3f;
 	font-weight: 300;
 	letter-spacing: 2px;
+	text-align: center;
+}
+
+h3{
+	text-align: center
 }
 
 .wrapper {
@@ -179,3 +184,30 @@ p {
 #containermete{
 	margin-top: 20%;
 }
+
+
+.card {
+	background: #ffffff;
+	max-width: 400px;
+	margin: 100px auto;
+	border-radius: 12px;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+	box-sizing: border-box;
+	padding: 48px;
+	text-align: center;
+  }
+  
+  
+  .product {
+	/*position: absolute; */
+	/*top: 0;
+	left: 0;
+	opacity: 0; */
+	visibility: hidden;
+	transition: 0.5s ease;
+  }
+
+  .product.active {
+	opacity: 1;
+	visibility: visible;
+  }
