@@ -128,7 +128,8 @@
 		return str_replace(".", "", str_replace(" ", "", strtolower($string)));
 	}
 
-	echo "<h1>Your itinerary</h1>";
+	echo "
+		  <h1>Your itinerary</h1>";
 	$startLink = "<a href='./cities/" . fileName($start) . ".html'>$start</a>";
 	$endLink = "<a href='./cities/" . fileName($end) . ".html'>$end</a>";
 
