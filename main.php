@@ -14,24 +14,11 @@
 <body>
 
 <div class="sidenav">
-	  <a href="index.html" class="logo1"><img src="./pics/LOGO1.png"</a>
+	  <a href="index.html" class="logo1"><img src="./pics/LOGO1.png"></a>
       <a href="mete.html"><span class="icon-location"></span> Explore</a>
 	</div>
-<<<<<<< HEAD
-	
-	<div class="container">
-      <!--<div class="row">-->
-        <div class="cols-sm-12 cols-md-10 cols-lg-10">
-          <div class="col-md-offset-2">
-            <div class="section1">
-		
 
 
-	
-=======
-
-
->>>>>>> 45ed962e9c2927ac32d4566a344c92b23b14f464
 <?php
 	include "routes.php";
 	$start = $_POST["start"];
@@ -147,10 +134,10 @@
 
 	echo "<p>You chose to go from $startLink to $endLink</p>";
 
-	
-					  
-					  
-	
+
+
+
+
 
 
 	$costo = 0;
@@ -170,7 +157,7 @@
 	}
 	echo'
 					  <div class="card">'.
-                  
+
 					  '<div class="product active" product-id="1" >'.
 					  '<h3>'. $tipo.' itinerary</h3>'.
 					 "<p>$c1 to $c2 by $key: $" . $value["costo"] . ", duration " . $durata . " hours</p>";
