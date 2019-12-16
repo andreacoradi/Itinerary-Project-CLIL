@@ -16,7 +16,7 @@
 <div class="sidenav">
 	  <a href="index.html" class="logo1"><img src="./pics/LOGO1.png"></a>
       <a href="mete.html"><span class="icon-location"></span> Explore</a>
-	</div>
+</div>
 
 
 <?php
@@ -139,7 +139,7 @@
 
 
 
-
+	$tot_duration = 0;
 	$costo = 0;
 	for($i = 0; $i < count($path)-1; $i++) {
 		$c1 = $path[$i];
@@ -148,28 +148,18 @@
 			/*$durata = strval(number_format((float)$value["tempo"] / 60, 2, '.', ''));
 			$durata = str_replace(".", ":", $durata);*/
 			$durata = gmdate("i:s", $value["tempo"]);
-
+			$tot_duration += $value["tempo"];
 			$icona = "<img src='./icons/$key.svg' width='20' height='20'>";
 			echo "<p>$icona $c1 to $c2 by $key: $" . $value["costo"] . ", duration " . $durata . " hours</p>";
 			$costo += $value["costo"];
 		}
 		//var_dump($routes_temp[$c1][$c2][array_keys($routes_temp[$c1][$c2])]);
 	}
-	echo'
-					  <div class="card">'.
 
-					  '<div class="product active" product-id="1" >'.
-					  '<h3>'. $tipo.' itinerary</h3>'.
-					 "<p>$c1 to $c2 by $key: $" . $value["costo"] . ", duration " . $durata . " hours</p>";
-					  "<p>Total cost: $$costo</p>";
-                    '</div>'.
-              '</div>';
+	$tempo =gmdate("i:s", $tot_duration);
+	$icona = "<img src='./icons/money.svg' width='10' height='10'>";
+	echo "<p>$icona Total cost: $$costo, Total Duration: $tempo hours</p>";
+
 ?>
-
-
-</div>
-          </div>
-        </div>
-	  </div>
 </body>
 </html>
