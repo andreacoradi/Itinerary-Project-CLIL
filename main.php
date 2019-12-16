@@ -17,6 +17,7 @@
 	  <a href="index.html" class="logo1"><img src="./pics/LOGO1.png"</a>
       <a href="mete.html"><span class="icon-location"></span> Explore</a>
 	</div>
+<<<<<<< HEAD
 	
 	<div class="container">
       <!--<div class="row">-->
@@ -27,6 +28,10 @@
 
 
 	
+=======
+
+
+>>>>>>> 45ed962e9c2927ac32d4566a344c92b23b14f464
 <?php
 	include "routes.php";
 	$start = $_POST["start"];
@@ -156,7 +161,13 @@
 			/*$durata = strval(number_format((float)$value["tempo"] / 60, 2, '.', ''));
 			$durata = str_replace(".", ":", $durata);*/
 			$durata = gmdate("i:s", $value["tempo"]);
+<<<<<<< HEAD
 			
+=======
+
+			$icona = "<img src='./icons/$key.svg' width='20' height='20'>";
+			echo "<p>$icona $c1 to $c2 by $key: $" . $value["costo"] . ", duration " . $durata . " hours</p>";
+>>>>>>> 45ed962e9c2927ac32d4566a344c92b23b14f464
 			$costo += $value["costo"];
 		}
 		//var_dump($routes_temp[$c1][$c2][array_keys($routes_temp[$c1][$c2])]);
