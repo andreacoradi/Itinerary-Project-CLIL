@@ -1,66 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.rawgit.com/Chalarangelo/mini.css/v3.0.1/dist/mini-default.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Document</title>
+  </head>
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link rel="stylesheet" href="https://cdn.rawgit.com/Chalarangelo/mini.css/v3.0.1/dist/mini-default.min.css">
-	<link rel="stylesheet" href="styles.css">
-	<title>Document</title>
-</head>
+  <body>
+    <div class="sidenav">
+      <a href="index.html" class="logo1"><img src="LOGO1.png"</a>
+      <a href="#"><span class="icon-calendar"></span> My itineraries</a>
+      <a href="mete.html"><span class="icon-location"></span> Explore</a>
+    </div>
+    <div class="container">
+      <!--<div class="row">-->
+        <div class="cols-sm-12 cols-md-10 cols-lg-10">
+          <div class="col-md-offset-2">
+            <div class="section1">
+              <h1 style="text-align: center">Book a trip</h1>
 
-<body>
-	<div class="sidenav">
-		<a href="index.html" class="logo1"><img src="LOGO1.png"</a>
-		<a href="#"><span class="icon-calendar"></span> My itineraries</a>
-		<a href="mete.html"><span class="icon-location"></span> Explore</a>
-	</div>
-	<div class="container">
-		<div class="row cols-sm-12 cols-md-10">
-			<div class="col-md-offset-2">
-				<div class="section1">
-					<h1>Book a trip</h1>
+              <form action="main.php" method="post">
+                <p class="minititle">From</p>
+                <select name="start" style="margin-left:40%;width:20%;min-width:150px;">
+                  <option value="Los Angeles">Los Angeles</option>
+                  <option value="San Diego">San Diego</option>
+                  <option value="Washington D.C.">Washington D.C.</option>
+                  <option value="New York">New York</option>
+                  <option value="Portland">Portland</option>
+                </select>
 
-					<form action="main.php" method="post">
+                <p class="minititle">To</p>
+                <select name="end" style="margin-left:40%;width:20%;min-width:150px;">
+                  <option value="Los Angeles">Los Angeles</option>
+                  <option value="San Diego">San Diego</option>
+                  <option value="Washington D.C.">Washington D.C.</option>
+                  <option value="New York">New York</option>
+                  <option value="Portland">Portland</option>
+                </select>
 
-						<p class="minititle">From</p>
-						<select name="start">
-							<option value="Los Angeles">Los Angeles</option>
-							<option value="San Diego">San Diego</option>
-							<option value="Washington D.C.">Washington D.C.</option>
-							<option value="New York">New York</option>
-							<option value="Portland">Portland</option>
-						</select>
+                <p class="minititle" style="margin-left:40%;width:20%;min-width:150px;">Means of trasportation</p>
+                <input type="radio" name="tipo" value="fastest" style="margin-left:45%;"/> Fastest
+                <br />
+                <input type="radio" name="tipo" value="shortest" style="margin-left:45%;"/> Shortest
+                <br />
+                <input type="radio" name="tipo" value="cheapest" style="margin-left:45%;"/> Cheapest
+                <br />
 
+                <input type="checkbox" name="mezzo[]" value="bus" style="margin-left:45%;"/> Bus <br />
+                <input type="checkbox" name="mezzo[]" value="train" style="margin-left:45%;"/> train
+                <br />
+                <input type="checkbox" name="mezzo[]" value="airplane" style="margin-left:45%;"/>
+                Airplane <br />
 
-
-						<p class="minititle">To</p>
-						<select name="end">
-							<option value="Los Angeles">Los Angeles</option>
-							<option value="San Diego">San Diego</option>
-							<option value="Washington D.C.">Washington D.C.</option>
-							<option value="New York">New York</option>
-							<option value="Portland">Portland</option>
-						</select>
-
-						<p class="minititle"> Means of trasportation</p>
-						<input type="radio" name="tipo" value="fastest"> Fastest <br />
-						<input type="radio" name="tipo" value="shortest"> Shortest <br />
-						<input type="radio" name="tipo" value="cheapest"> Cheapest <br />
-
-						<input type="checkbox" name="mezzo[]" value="bus"> Bus <br />
-						<input type="checkbox" name="mezzo[]" value="train"> train <br />
-						<input type="checkbox" name="mezzo[]" value="airplane"> Airplane <br />
-
-						<input type="submit" value="Calculate">
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
-</body>
-
+                <input type="submit" value="Calculate" style="margin-left:45%;"/>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
