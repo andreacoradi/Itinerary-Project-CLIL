@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Risultato</title>
+	<title>Solution</title>
 </head>
 <body>
 <?php
@@ -103,20 +103,39 @@
 	$path = $g->paths_to($prev, $end);
 	//echo "Soluzione: ";
 	//echo "<br><pre>";
-	print_r($path);
+
+
+	//print_r($path);
+
+
 	//echo "</pre>";
+	$tipo = ucfirst($tipo);
+	function fileName($string) {
+		return str_replace(".", "", str_replace(" ", "", strtolower($string)));
+	}
+
+	echo "<h1>Your itinerary</h1>";
+	$startLink = "<a href='./cities/" . fileName($start) . ".html'>$start</a>";
+	$endLink = "<a href='./cities/" . fileName($end) . ".html'>$end</a>";
+
+	echo "<p>You chose to go from $startLink to $endLink</p>";
+	echo "<h3>$tipo itinerary</h3>";
+
 
 	$costo = 0;
 	for($i = 0; $i < count($path)-1; $i++) {
 		$c1 = $path[$i];
 		$c2 = $path[$i+1];
 		foreach($routes_temp[$c1][$c2] as $key=> $value){
-			echo "<p> Da $c1 a $c2 ci vai con $key: " . $tipo . ", costo = " . $value["costo"] . ", distanza = " . $value["distanza"] .  ", tempo = " . $value["tempo"] . "</p>";
+			/*$durata = strval(number_format((float)$value["tempo"] / 60, 2, '.', ''));
+			$durata = str_replace(".", ":", $durata);*/
+			$durata = gmdate("i:s", $value["tempo"]);
+			echo "<p>$c1 to $c2 by $key: $" . $value["costo"] . ", duration " . $durata . " hours</p>";
 			$costo += $value["costo"];
 		}
 		//var_dump($routes_temp[$c1][$c2][array_keys($routes_temp[$c1][$c2])]);
 	}
-	echo "<p>Spendi la bellezza di: $costo</p>";
+	echo "<p>Total cost: $$costo</p>";
 ?>
 </body>
 </html>
