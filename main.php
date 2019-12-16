@@ -107,7 +107,9 @@
 
 	//print_r($path);
 
-
+	if(count($path) == 0) {
+		echo "<h1>There is no way to reach that destination</h1>";
+	}
 	//echo "</pre>";
 	$tipo = ucfirst($tipo);
 	function fileName($string) {
