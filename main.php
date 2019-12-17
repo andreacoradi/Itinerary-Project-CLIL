@@ -40,6 +40,13 @@
 		echo "<p> Try Again ... </p>";
 		return;
 	}
+
+	if($start == $end) {
+		echo "<h1>Select two different places</h1>";
+		echo "<p> Try Again ... </p>";
+		echo "<a href='./index.html'> Try Again ... </a>";
+		return;
+	}
 	$routes_temp = $routes;
 	foreach($routes as $cityStart => $cityEnd) {
 
