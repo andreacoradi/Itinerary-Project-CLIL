@@ -118,7 +118,7 @@
 
 
 	//print_r($path);
-
+	$valid = true;
 	if(count($path) == 0) {
 		echo "<h1>There is no way to reach that destination</h1>";
 		echo "<p> Try Again ... </p>";
