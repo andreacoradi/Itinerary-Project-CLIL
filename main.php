@@ -34,6 +34,12 @@
 		$usr_important = "costo";
 	}
 	// echo "<h1>" . $usr_important . "</h1>";
+	$valid = true;
+	if ($start == "San Diego" && $end == "Los Angeles" && !in_array("bus", $usr_mezzi)) {
+		echo "<h1>There is no way to reach that destination</h1>";
+		echo "<p> Try Again ... </p>";
+		return;
+	}
 	$routes_temp = $routes;
 	foreach($routes as $cityStart => $cityEnd) {
 
@@ -118,10 +124,10 @@
 
 
 	//print_r($path);
-	$valid = true;
+
 	if(count($path) == 0) {
 		echo "<h1>There is no way to reach that destination</h1>";
-		echo "<p> Try Again ... </p>";
+		echo "<a href='./index.html'> Try Again ... </a>";
 		$valid = false;
 	}
 	if(!$valid) {
