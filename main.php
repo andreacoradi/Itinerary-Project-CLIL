@@ -121,6 +121,11 @@
 
 	if(count($path) == 0) {
 		echo "<h1>There is no way to reach that destination</h1>";
+		echo "<p> Try Again ... </p>";
+		$valid = false;
+	}
+	if(!$valid) {
+		return;
 	}
 	//echo "</pre>";
 	$tipo = ucfirst($tipo);
